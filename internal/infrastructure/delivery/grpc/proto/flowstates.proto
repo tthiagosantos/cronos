@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "internal/infrastructure/delivery/grpc/pb/";
+
+message FlowDataResponse {
+  string _id = 1;
+  string flowid = 2;
+  int32 floworder = 3;
+  string flowstatedescription = 4;
+  int32 flowstateid = 5;
+  string flowstatename = 6;
+  string macroflowstatedescription = 7;
+  int32 macroflowstateid = 8;
+}
+
+service FlowDataService {
+  rpc GetFlowData (FlowDataRequest) returns (stream FlowDataResponse);
+}
+
+message FlowDataRequest {}
